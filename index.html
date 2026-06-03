@@ -27,6 +27,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   html {
@@ -2164,22 +2168,24 @@
     .header-cta {
       flex: 0 0 auto !important;
       display: flex !important;
-      font-size: 0.72rem !important;
-      padding: 5px 10px !important;
+      font-size: 0.75rem !important;
+      padding: 6px 16px !important;
+      margin-left: 10px !important;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%) !important;
     }
     .nav-menu {
       display: flex !important;
       flex-direction: row !important;
-      flex: 1 1 auto !important;
-      width: auto !important;
+      flex: 0 1 140px !important;
+      width: 140px !important;
       min-width: 0 !important;
       overflow-x: auto !important;
       scrollbar-width: none !important;
       -webkit-overflow-scrolling: touch !important;
       scroll-snap-type: x mandatory !important;
       scroll-behavior: smooth !important;
-      margin: 0 !important;
-      padding: 0 38% !important;
+      margin: 0 auto !important;
+      padding: 0 30% !important;
       order: unset !important;
       height: 38px !important;
       align-items: center !important;
@@ -2891,7 +2897,7 @@
       
       <div class="player-wrapper-giant notched-panel hud-bracket reveal">
         <video class="main-video" id="video-element" preload="metadata" playsinline webkit-playsinline>
-          <source src="./trailer.mp4" type="video/mp4">
+          <source src="./(VO)QIU AI Video Innovation Challenge Final 4K.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         
