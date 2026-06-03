@@ -2172,6 +2172,7 @@
       flex-direction: row !important;
       flex: 1 1 auto !important;
       width: auto !important;
+      min-width: 0 !important;
       overflow-x: auto !important;
       scrollbar-width: none !important;
       -webkit-overflow-scrolling: touch !important;
@@ -2401,14 +2402,13 @@
       margin-bottom: 4px !important;
     }
     .card-desc-wrapper {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.4s var(--transition-bezier), opacity 0.4s var(--transition-bezier);
+      max-height: none !important;
+      opacity: 1 !important;
+      overflow: visible !important;
       grid-column: 1 / -1 !important;
     }
     .timeline-desc-card.active .card-desc-wrapper {
-      max-height: 250px !important;
+      max-height: none !important;
       opacity: 1 !important;
     }
     .timeline-control-bar {
