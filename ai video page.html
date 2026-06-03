@@ -253,7 +253,7 @@
   .snap-container {
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
@@ -261,17 +261,18 @@
 
   section.snap-page {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
     scroll-margin-top: 0;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 64px 60px;
+    padding: 100px 64px 80px;
     border-bottom: 1px solid var(--grid-line);
   }
   /* Pages that benefit from vertical centering */
@@ -2896,7 +2897,7 @@
       
       <div class="player-wrapper-giant notched-panel hud-bracket reveal">
         <video class="main-video" id="video-element" preload="metadata" playsinline webkit-playsinline>
-          <source src="./(VO)QIU AI Video Innovation Challenge Final 4K.mp4" type="video/mp4">
+          <source src="./trailer.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         
