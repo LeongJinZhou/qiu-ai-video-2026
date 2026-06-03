@@ -2898,7 +2898,7 @@
       
       <div class="player-wrapper-giant notched-panel hud-bracket reveal">
         <video class="main-video" id="video-element" preload="metadata" playsinline webkit-playsinline>
-          <source src="./trailer.mp4" type="video/mp4">
+          <source src="./(VO)QIU AI Video Innovation Challenge Final 1080p.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         
@@ -2936,7 +2936,18 @@
               </div>
               <span class="time-display" id="time-readout">00:00 / 00:00</span>
             </div>
-            <div class="right-controls">
+            <div class="right-controls" style="display: flex; align-items: center; gap: 12px;">
+              <!-- Resolution Selector -->
+              <div class="res-selector-wrapper" style="position: relative; display: inline-block;">
+                <button class="control-btn" id="res-btn" style="font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; letter-spacing: 1px; padding: 4px 8px; border: 1px solid rgba(0, 240, 255, 0.4); border-radius: 4px; background: rgba(1, 4, 15, 0.8); color: var(--neon-blue); cursor: pointer; transition: all 0.3s; line-height: 1;">
+                  1080P
+                </button>
+                <div class="res-dropdown" id="res-menu" style="display: none; position: absolute; bottom: 100%; right: 0; margin-bottom: 8px; background: rgba(1, 4, 15, 0.95); border: 1.5px solid var(--border-glow); border-radius: 4px; box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25); z-index: 100; min-width: 80px; overflow: hidden;">
+                  <button class="res-opt" data-res="720p" style="display: block; width: 100%; text-align: center; padding: 8px 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--text-muted); background: transparent; border: none; cursor: pointer; transition: all 0.2s;">720P</button>
+                  <button class="res-opt active" data-res="1080p" style="display: block; width: 100%; text-align: center; padding: 8px 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--neon-blue); background: rgba(0, 240, 255, 0.1); border: none; cursor: pointer; transition: all 0.2s;">1080P</button>
+                  <button class="res-opt" data-res="4k" style="display: block; width: 100%; text-align: center; padding: 8px 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; color: var(--text-muted); background: transparent; border: none; cursor: pointer; transition: all 0.2s;">4K</button>
+                </div>
+              </div>
               <button class="control-btn" id="fullscreen-btn">
                 <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
               </button>
@@ -4181,6 +4192,89 @@
     video.muted = false;
     volIcon.style.display = 'block';
     muteIcon.style.display = 'none';
+  });
+
+  // ─── RESOLUTION SWITCHING LOGIC ───
+  const resBtn = document.getElementById('res-btn');
+  const resMenu = document.getElementById('res-menu');
+  const resOpts = document.querySelectorAll('.res-opt');
+  const hudTagTl = document.querySelector('.hud-tag-tl');
+
+  const resSources = {
+    '720p': './(VO)QIU AI Video Innovation Challenge Final 720p.mp4',
+    '1080p': './(VO)QIU AI Video Innovation Challenge Final 1080p.mp4',
+    '4k': './(VO)QIU AI Video Innovation Challenge Final 4K.mp4'
+  };
+
+  const resLabels = {
+    '720p': '720P',
+    '1080p': '1080P',
+    '4k': '4K // UHD'
+  };
+
+  // Toggle dropdown
+  resBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    resMenu.style.display = resMenu.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', () => {
+    if (resMenu) resMenu.style.display = 'none';
+  });
+
+  // Handle resolution change and hovers
+  resOpts.forEach(opt => {
+    opt.addEventListener('mouseenter', () => {
+      if (!opt.classList.contains('active')) {
+        opt.style.color = '#fff';
+        opt.style.background = 'rgba(0, 240, 255, 0.05)';
+      }
+    });
+    opt.addEventListener('mouseleave', () => {
+      if (!opt.classList.contains('active')) {
+        opt.style.color = 'var(--text-muted)';
+        opt.style.background = 'transparent';
+      }
+    });
+
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const newRes = opt.getAttribute('data-res');
+      const wasPlaying = !video.paused;
+      const currentTime = video.currentTime;
+
+      // Update source
+      video.src = resSources[newRes];
+      video.load();
+
+      // Restore time and playback state
+      video.currentTime = currentTime;
+      if (wasPlaying) {
+        video.play();
+      }
+
+      // Update active option styling
+      resOpts.forEach(o => {
+        o.classList.remove('active');
+        o.style.color = 'var(--text-muted)';
+        o.style.background = 'transparent';
+      });
+      opt.classList.add('active');
+      opt.style.color = 'var(--neon-blue)';
+      opt.style.background = 'rgba(0, 240, 255, 0.1)';
+
+      // Update button label
+      resBtn.textContent = resLabels[newRes];
+
+      // Update HUD tag
+      if (hudTagTl) {
+        hudTagTl.textContent = 'SYS_REC_ON // ' + (newRes === '4k' ? '4K_UHD' : newRes.toUpperCase());
+      }
+
+      // Close menu
+      resMenu.style.display = 'none';
+    });
   });
 
   // Full screen toggle

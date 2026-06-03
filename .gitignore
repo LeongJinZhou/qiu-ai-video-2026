@@ -3,3 +3,13 @@ node_modules/
 .firebase/
 trailer.mp4
 *.mp4
+
+# Sensitive Materials
+Event Proposal.pdf
+
+# Logos & Brand Material
+Logo.png
+QIU Logo Black.png
+QR Code.png
+Poster.png
+intro_editor_bg.png
