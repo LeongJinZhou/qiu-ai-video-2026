@@ -2732,7 +2732,8 @@
       }
 
       .qiu-logo {
-        height: 32px !important;
+        height: 28px !important;
+        clip-path: none !important;
       }
 
       .logo-area {
@@ -2742,17 +2743,17 @@
       .header-cta {
         flex: 0 0 auto !important;
         display: flex !important;
-        font-size: 0.75rem !important;
-        padding: 6px 16px !important;
-        margin-left: 10px !important;
+        font-size: 0.72rem !important;
+        padding: 6px 12px !important;
+        margin-left: 4px !important;
         clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%) !important;
       }
 
       .nav-menu {
         display: flex !important;
         flex-direction: row !important;
-        flex: 0 1 140px !important;
-        width: 140px !important;
+        flex: 0 1 115px !important;
+        width: 115px !important;
         min-width: 0 !important;
         overflow-x: auto !important;
         scrollbar-width: none !important;
@@ -2760,11 +2761,11 @@
         scroll-snap-type: x mandatory !important;
         scroll-behavior: smooth !important;
         margin: 0 auto !important;
-        padding: 0 30% !important;
+        padding: 0 10px !important;
         order: unset !important;
         height: 38px !important;
         align-items: center !important;
-        gap: 18px !important;
+        gap: 14px !important;
         position: relative !important;
         mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
         -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
@@ -3138,7 +3139,7 @@
       }
 
       .prizes-header h2 {
-        font-size: clamp(2.2rem, 4vw, 3.8rem) !important;
+        font-size: clamp(3.0rem, 5vw, 4.5rem) !important;
       }
 
       .prizes-header .hero-eyebrow {
@@ -3555,12 +3556,12 @@
         <div class="hero-stats-panel notched-panel hud-bracket">
           <div class="stat-block">
             <div class="stat-val">14</div>
-            <div class="stat-lbl">Days Sprint</div>
+            <div class="stat-lbl">Day Sprint</div>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-block">
             <div class="stat-val">RM5K</div>
-            <div class="stat-lbl">Total worth of Prizes</div>
+            <div class="stat-lbl">Worth of Prizes</div>
           </div>
           <div class="stat-divider"></div>
           <div class="stat-block">
@@ -3613,7 +3614,7 @@
             AI Video Innovation Challenge gives every student, regardless of faculty, hands-on experience with
             cutting-edge AI video generation tools.
             <br><br>
-            Create a <strong>promotional or experiential (3 minutes max) </strong> about QIU — its campus, student
+            Create a <strong>promotional or experiential video (3 minutes max) </strong> about QIU — its campus, student
             life, academics, or culture — using AI-powered platforms. Compete solo or in a team of up to 5.
             <strong>
 
@@ -3629,7 +3630,7 @@
           <div class="grid-card notched-panel hud-bracket reveal">
             <div class="card-title">💡 Free AI Credits</div>
             <div class="card-text">All participants will receive complimentary trial credits for Google AI Pro. You'll
-              learn to claim it
+              learn to claim them
               during the opening briefing. No prior AI experience is needed.</div>
           </div>
           <div class="grid-card notched-panel hud-bracket reveal">
@@ -3853,9 +3854,9 @@
             <ul class="theme-list">
               <li>Culinary Tour of La Place Cafe</li>
               <li>The Library Experience</li>
-              <li>Academic Spaces Focus</li>
+              <li>Academic Space Focus (Labs & Tech)</li>
               <li>Student Lounge & Relaxation Zones</li>
-              <li>Logistics, Hostel Life </li>
+              <li>Logistics, Parking, Hostel Life </li>
               <li>& More..</li>
             </ul>
           </div>
@@ -3884,6 +3885,7 @@
             <span class="theme-label">Theme D</span>
             <h3 class="theme-title">🌏 Clubs, Events & Cultural Diversity</h3>
             <ul class="theme-list">
+              <li>Spotlight on Clubs & Soceties</li>
               <li>Multicultural Celebrations</li>
               <li>Global Student Harmony</li>
               <li>& More..</li>
@@ -4035,7 +4037,7 @@
 
         <!-- Categories Column (Right Side now swapped) -->
         <div class="scoring-right reveal">
-          <p class="hero-eyebrow">// Evaluation Metric</p>
+          <p class="hero-eyebrow">// Evaluation Metrics</p>
           <h2 class="animated-title">HOW YOU'LL BE <span>SCORED</span></h2>
           <p class="score-card-desc" style="margin-bottom: 20px;">Hover over any segment of the donut chart, or the list
             below to inspect the scoring weight of a specific criterion out of 100%.</p>
@@ -4140,10 +4142,12 @@
         <div class="prizes-header reveal"
           style="width: 100%; display: flex; flex-direction: column; align-items: center;">
           <p class="hero-eyebrow">// Rewards</p>
-          <h2 class="animated-title" style="margin-bottom: 12px;"><span>PRIZES</span></h2>
+          <h2 class="animated-title"
+            style="font-size: clamp(4.0rem, 6vw, 5.5rem); line-height: 1.0; margin-bottom: 16px;"><span>PRIZES</span>
+          </h2>
           <p
             style="color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 20px; line-height: 1.6;">
-            The prize pool is awarded in the form of tuition fee deductions or eWallet credits.
+            Prizes will be awarded in the form of tuition fee deductions or eWallet credits.
           </p>
         </div>
 
@@ -4276,7 +4280,8 @@
             style="margin-bottom: 16px; font-size: clamp(3.2rem, 6vw, 5.5rem); line-height: 1.0;">READY TO
             <span>COMPETE?</span>
           </h2>
-          <p class="reg-desc" style="max-width: 750px; margin-bottom: 0;">Scan the QR code or click Register Now button
+          <p class="reg-desc" style="max-width: 750px; margin-bottom: 0;">Scan the QR code, or click the Register Now
+            button
             below, to enter your details and upload the registration fee receipt to secure your place in the virtual
             briefing.</p>
         </div>
@@ -4302,7 +4307,7 @@
           </div>
           <div class="detail-card notched-panel hud-bracket"
             style="border: 2px solid var(--neon-blue); background: rgba(0, 240, 255, 0.05); box-shadow: 0 0 15px rgba(0, 240, 255, 0.15); padding: 24px;">
-            <div class="detail-lbl" style="color: var(--neon-blue); font-size: 0.85rem;">Participation Payout</div>
+            <div class="detail-lbl" style="color: var(--neon-blue); font-size: 0.85rem;">Participation Fee</div>
             <div class="detail-val"
               style="font-size: 2.8rem; color: #fff; text-shadow: 0 0 10px var(--neon-blue); margin-top: 8px;">RM5 <span
                 style="font-size: 1.1rem; text-shadow: none; color: var(--text-muted); font-weight: 500;">solo / per
